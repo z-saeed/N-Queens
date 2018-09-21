@@ -2,9 +2,11 @@
 #include <stack>
 #include <cmath>
 
+#define N 8;
+
 using namespace std;
 
-bool isSafe(int coords[8], stack <int> queens, int col, int row)
+bool isSafe(int coords[N], stack <int> queens, int col, int row)
 {
 	if(queens.empty()) {
 		return true;
@@ -30,13 +32,13 @@ void showstack(stack <int> s)
     cout << '\n'; 
 } 
 
-bool insertQueen(stack <int> queens, int coords[8])
+bool insertQueen(stack <int> queens, int coords[N])
 {
-	if(queens.size() == 8) {
+	if(queens.size() == N) {
 		showstack(queens);
 		return true;
 	}
-	for (int i = 1; i <= 8; i++) {
+	for (int i = 1; i <= N; i++) {
 		if(isSafe(coords, queens, i, queens.size() + 1)) {
 			queens.push(i);
 			coords[queens.size() - 1] = i;
@@ -54,7 +56,7 @@ int main()
 {
 	//8-Queens
 	stack <int> queens;
-	int coords[8];
+	int coords[N];
 
 	if (insertQueen(queens, coords)) {
 		return 0;
