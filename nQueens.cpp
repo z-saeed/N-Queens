@@ -2,7 +2,7 @@
 #include <stack>
 #include <cmath>
 
-#define N 8;
+#define N 8
 
 using namespace std;
 
