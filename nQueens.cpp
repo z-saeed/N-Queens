@@ -8,16 +8,14 @@ using namespace std;
 
 bool isSafe(int coords[N], stack <int> queens, int col, int row)
 {
-	if(queens.empty()) {
+	if(queens.empty())
 		return true;
-	}
+	
 	for (int i = 1; i < row; i++) {
-		if (col == coords[i - 1]) {
+		if (col == coords[i - 1])
 			return false;
-		}
-		if (abs(row - i) == abs(col - coords[i-1])) {
+		if (abs(row - i) == abs(col - coords[i-1]))
 			return false;
-		}
 	}
 	return true;
 }
@@ -42,11 +40,10 @@ bool insertQueen(stack <int> queens, int coords[N])
 		if(isSafe(coords, queens, i, queens.size() + 1)) {
 			queens.push(i);
 			coords[queens.size() - 1] = i;
-			if(insertQueen(queens, coords)) {
+			if(insertQueen(queens, coords))
 				return true;
-			} else {
+			else
 				queens.pop();
-			}
 		}
 	}
 	return false;
@@ -58,9 +55,8 @@ int main()
 	stack <int> queens;
 	int coords[N];
 
-	if (insertQueen(queens, coords)) {
+	if (insertQueen(queens, coords))
 		return 0;
-	}
 
 	return 0;
 }
